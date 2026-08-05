@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 
 from config import SOURCES, REQUEST_TIMEOUT, USER_AGENT
+from filters import is_relevant
 
 
 HEADERS = {
