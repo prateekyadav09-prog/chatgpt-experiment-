@@ -30,7 +30,7 @@ def save_results(vacancies):
         "Status",
     ]
 
-    df = pd.DataFrame(vacancies, columns=columns)
+    df = pd.DataFrame(vacancies)
     df.to_csv(OUTPUT_CSV, index=False)
 
     print(f"Saved {len(df)} vacancies to {OUTPUT_CSV}")
