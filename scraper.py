@@ -64,7 +64,7 @@ def find_career_pages(base_url, html):
     Discover recruitment pages automatically.
     """
 
-    soup = BeautifulSoup(html, "lxml")
+    soup = BeautifulSoup(html, "html.parser")
 
     pages = set()
 
@@ -114,7 +114,7 @@ def extract_vacancies(source_name, page_url):
     if html is None:
         return []
 
-    soup = BeautifulSoup(html, "lxml")
+    soup = BeautifulSoup(html, "html.parser")
 
     vacancies = []
 
