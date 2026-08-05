@@ -1,0 +1,45 @@
+name: Faculty Vacancy Tracker
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    # Runs every day at 01:30 UTC (07:00 IST)
+    - cron: '30 1 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  tracker:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Vacancy Tracker
+        run: |
+          python main.py
+
+      - name: Commit updated CSV
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add vacancies.csv
+
+          git diff --cached --quiet || git commit -m "Auto update vacancies"
+
+          git push
