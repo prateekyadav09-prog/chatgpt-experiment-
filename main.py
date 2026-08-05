@@ -12,13 +12,7 @@ from config import OUTPUT_CSV
 # from scraper import collect_vacancies
 
 
-def collect_vacancies():
-    """
-    Placeholder until scraper.py is implemented.
-    """
-    vacancies = []
-    return vacancies
-
+from scraper import collect_vacancies
 
 def save_results(vacancies):
     """
