@@ -100,3 +100,59 @@ def scan_source(source):
     )
 
     return career_pages
+    from filters import is_relevant
+
+
+def extract_vacancies(source_name, page_url):
+    """
+    Download a career page and extract Chemistry-related vacancies.
+    """
+
+    html = download_page(page_url)
+
+    if html is None:
+        return []
+
+    soup = BeautifulSoup(html, "lxml")
+
+    vacancies = []
+
+    page_text = soup.get_text(" ", strip=True)
+
+    if is_relevant(page_text):
+
+        vacancies.append({
+            "Date Found": "",
+            "Organisation": source_name,
+            "Position": "Unknown",
+            "Subject": "Chemistry",
+            "Location": "",
+            "Last Date": "",
+            "Advertisement Link": page_url,
+            "Status": "New"
+        })
+
+    return vacancies
+
+
+def collect_vacancies():
+    """
+    Collect vacancies from every configured source.
+    """
+
+    all_vacancies = []
+
+    for source in SOURCES:
+
+        career_pages = scan_source(source)
+
+        for page in career_pages:
+
+            vacancies = extract_vacancies(
+                source["name"],
+                page
+            )
+
+            all_vacancies.extend(vacancies)
+
+    return all_vacancies
