@@ -93,17 +93,102 @@ USER_AGENT = (
 # ORGANISATIONS TO MONITOR
 # ============================================
 
-SOURCES = {
-    "UGC": "https://www.ugc.gov.in/",
-    "CSIR": "https://www.csir.res.in/",
-    "DRDO": "https://www.drdo.gov.in/",
-    "BARC": "https://recruit.barc.gov.in/",
-    "IISc": "https://iisc.ac.in/",
-    "IIT": "https://www.iitd.ac.in/",
-    "IISER": "https://www.iiserpune.ac.in/",
-    "NCL": "https://www.ncl-india.org/",
-    "IICB": "https://iicb.res.in/",
-    "IACS": "https://www.iacs.res.in/"
+# ============================================
+# SOURCES TO MONITOR
+# ============================================
+
+SOURCES = [
+
+    # Government
+    {
+        "name": "UGC",
+        "url": "https://www.ugc.gov.in/",
+        "type": "government"
+    },
+
+    {
+        "name": "Haryana Higher Education",
+        "url": "https://highereduhry.ac.in/",
+        "type": "government"
+    },
+
+    {
+        "name": "Delhi University",
+        "url": "https://www.du.ac.in/",
+        "type": "government"
+    },
+
+    # Research Institutes
+
+    {
+        "name": "CSIR",
+        "url": "https://www.csir.res.in/",
+        "type": "research"
+    },
+
+    {
+        "name": "DRDO",
+        "url": "https://www.drdo.gov.in/",
+        "type": "research"
+    },
+
+    {
+        "name": "BARC",
+        "url": "https://recruit.barc.gov.in/",
+        "type": "research"
+    },
+
+    {
+        "name": "NCL",
+        "url": "https://www.ncl-india.org/",
+        "type": "research"
+    },
+
+    {
+        "name": "IICB",
+        "url": "https://iicb.res.in/",
+        "type": "research"
+    },
+
+    {
+        "name": "IACS",
+        "url": "https://www.iacs.res.in/",
+        "type": "research"
+    },
+
+    # Private Universities
+
+    {
+        "name": "Ashoka University",
+        "url": "https://www.ashoka.edu.in/",
+        "type": "private"
+    },
+
+    {
+        "name": "O.P. Jindal Global University",
+        "url": "https://jgu.edu.in/",
+        "type": "private"
+    },
+
+    {
+        "name": "BML Munjal University",
+        "url": "https://www.bmu.edu.in/",
+        "type": "private"
+    },
+
+    {
+        "name": "Manav Rachna University",
+        "url": "https://manavrachna.edu.in/",
+        "type": "private"
+    },
+
+    {
+        "name": "SGT University",
+        "url": "https://sgtuniversity.ac.in/",
+        "type": "private"
+    }
+
+]
 }
 
 # ============================================
